@@ -2,7 +2,7 @@ import "./App.css";
 import Description from "./components/Description/Description";
 import Options from "./components/Options/Options";
 import Notification from "./components/Notification/Notification";
-import Feedback from "./components/Feedback/Feedback";
+
 import { useEffect, useState } from "react";
 
 function App() {
@@ -40,17 +40,7 @@ function App() {
         totalFeedback={totalFeedback}
         resetFeedback={resetFeedback}
       />
-      {totalFeedback > 0 ? (
-        <Feedback
-          good={feedback.good}
-          neutral={feedback.neutral}
-          bad={feedback.bad}
-          total={totalFeedback}
-          feedback={feedback}
-        />
-      ) : (
-        <Notification />
-      )}
+      <Notification />
     </div>
   );
 }
