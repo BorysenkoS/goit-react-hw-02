@@ -19,7 +19,8 @@ function App() {
   }, [feedback]);
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-
+  const positiveFeedback =
+    Math.round((feedback.good / (totalFeedback - feedback.neutral)) * 100) || 0;
   function updateFeedback(feedbackType) {
     setFeedback({ ...feedback, [feedbackType]: feedback[feedbackType] + 1 });
   }
@@ -47,6 +48,7 @@ function App() {
           bad={feedback.bad}
           total={totalFeedback}
           feedback={feedback}
+          positiveFeedback={positiveFeedback}
         />
       ) : (
         <Notification />
